@@ -1,6 +1,6 @@
 import 'dart:io';
 
-vvoid main() {
+void main() {
   double numeroUm = 0;
   double numeroDois = 0;
   String operacao = "";
@@ -91,5 +91,20 @@ print("Primeiro nome da lista: ${nomes[0]}");
 print("Telefone da Ana: ${agenda['Ana']}");
 print("Números únicos no conjunto: $numerosUnicos");
 
-*/
+if (condição){
+  código;
+} else {
+  código;
+}
 
+switch (variávelDeEntrada){
+  case 1:
+    código;
+  case 2:
+    código;
+  case 3:
+    código;
+  break;
+} 
+
+*/
