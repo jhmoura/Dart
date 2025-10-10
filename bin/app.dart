@@ -1,29 +1,72 @@
 import 'dart:io';
 
-void main() {
-  double n1 = double.parse(stdin.readLineSync()!);
-  double n2 = double.parse(stdin.readLineSync()!);
+vvoid main() {
+  double numeroUm = 0;
+  double numeroDois = 0;
+  String operacao = "";
 
   void soma() {
-    print(n1 + n2);
+    print(numeroUm + numeroDois);
   }
 
   void subtracao() {
-    print(n1 - n2);
-  }
-
-  void multiplicacao() {
-    print(n1 * n2);
+    print(numeroUm - numeroDois);
   }
 
   void divisao() {
-    print(n1 / n2);
+    print(numeroUm / numeroDois);
   }
 
-  soma();
-  subtracao();
-  multiplicacao();
-  divisao();
+  void multiplicacao() {
+    print(numeroUm * numeroDois);
+  }
+
+  void calcular() {
+    switch (operacao) {
+      case "+":
+        soma();
+
+      case "-":
+        subtracao();
+
+      case "*":
+        multiplicacao();
+
+      case "/":
+        divisao();
+        break;
+    }
+  }
+
+  print("Digite o primeiro valor");
+
+  String? entrada = stdin.readLineSync();
+
+  if (entrada != null) {
+    if (entrada != "") {
+      numeroUm = double.parse(entrada);
+    }
+  }
+
+  print("Digite uma operação");
+
+  entrada = stdin.readLineSync();
+  if (entrada != null) {
+    operacao = entrada;
+  }
+
+  print("Digite o segundo valor");
+
+  entrada = stdin.readLineSync();
+  if (entrada != null) {
+    if (entrada != "") {
+      numeroDois = double.parse(entrada);
+    }
+  }
+
+  print("O resultado da operação é:");
+
+  calcular();
 }
 
 //Variáveis primitivas
@@ -49,3 +92,4 @@ print("Telefone da Ana: ${agenda['Ana']}");
 print("Números únicos no conjunto: $numerosUnicos");
 
 */
+
