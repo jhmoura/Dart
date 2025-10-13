@@ -1,9 +1,12 @@
 import 'dart:io';
 
 void main() {
+  /* Calculadora
   double numeroUm = 0;
   double numeroDois = 0;
   String operacao = "";
+  String? entrada = "";
+  List<String> operacoes = <String>["+", "-", "*", "/"];
 
   void soma() {
     print(numeroUm + numeroDois);
@@ -38,35 +41,67 @@ void main() {
     }
   }
 
-  print("Digite o primeiro valor");
-
-  String? entrada = stdin.readLineSync();
-
-  if (entrada != null) {
-    if (entrada != "") {
-      numeroUm = double.parse(entrada);
+  void getOperacao() {
+    print("Digite uma operação ${operacoes.toString()}: ");
+    entrada = stdin.readLineSync();
+    if (entrada != null) {
+      if (operacoes.contains(entrada)) {
+        operacao = entrada!;
+      } else {
+        print("Operador inválido");
+        getOperacao();
+      }
     }
   }
 
-  print("Digite uma operação");
+  print("Digite o primeiro valor");
 
   entrada = stdin.readLineSync();
+
   if (entrada != null) {
-    operacao = entrada;
+    if (entrada != "") {
+      numeroUm = double.parse(entrada!);
+    }
   }
+
+  getOperacao();
 
   print("Digite o segundo valor");
 
   entrada = stdin.readLineSync();
   if (entrada != null) {
     if (entrada != "") {
-      numeroDois = double.parse(entrada);
+      numeroDois = double.parse(entrada!);
     }
   }
 
   print("O resultado da operação é:");
 
-  calcular();
+  calcular();*/
+
+  //Aplicativo de notas
+
+  List<String> notas = <String>[];
+
+  String getComando() {
+    print("Digite um comando:");
+    print("1 - Adicionar nota.");
+    print("2 - Listar notas.");
+    print("3 - Sair.");
+
+    List<String> comandos = <String>["1", "2", "3"];
+    String? entrada = "";
+    entrada = stdin.readLineSync();
+
+    if (entrada == null || !comandos.contains(entrada)) {
+      print("Entrada invélida");
+      getComando();
+    }
+
+    return entrada!;
+  }
+
+  getComando();
 }
 
 //Variáveis primitivas
@@ -106,5 +141,9 @@ switch (variávelDeEntrada){
     código;
   break;
 } 
+
+Listas
+List<tipoDasEntradas> nomeDaLista = <tipoDasEntradas>[];
+
 
 */
