@@ -1,7 +1,7 @@
 import 'dart:io';
 
-void main() {
-  /* Calculadora
+//void main() {
+/* Calculadora
   double numeroUm = 0;
   double numeroDois = 0;
   String operacao = "";
@@ -77,31 +77,69 @@ void main() {
 
   print("O resultado da operação é:");
 
-  calcular();*/
+  calcular();
+  }*/
 
-  //Aplicativo de notas
+//Aplicativo de notas
 
+void main() {
   List<String> notas = <String>[];
+  menu(notas);
+}
 
-  String getComando() {
-    print("Digite um comando:");
-    print("1 - Adicionar nota.");
-    print("2 - Listar notas.");
-    print("3 - Sair.");
+String getComando() {
+  print("Digite um comando:");
+  print("1 - Adicionar nota.");
+  print("2 - Listar notas.");
+  print("3 - Sair.");
 
-    List<String> comandos = <String>["1", "2", "3"];
-    String? entrada = "";
-    entrada = stdin.readLineSync();
+  List<String> comandos = <String>["1", "2", "3"];
+  String? entrada = "";
+  entrada = stdin.readLineSync();
 
-    if (entrada == null || !comandos.contains(entrada)) {
-      print("Entrada invélida");
-      getComando();
-    }
-
-    return entrada!;
+  if (entrada == null || !comandos.contains(entrada)) {
+    print("Entrada invélida");
+    getComando();
   }
 
-  getComando();
+  return entrada!;
+}
+
+List<String> adicionaNota(List<String> notas) {
+  print("Escreva uma nota: ");
+  String? nota = "";
+
+  nota = stdin.readLineSync();
+
+  if (nota == null || nota.isEmpty) {
+    print("Não é possível adicionar uma nota vazia.");
+    adicionaNota(notas);
+  }
+
+  notas.add(nota!);
+
+  return notas;
+}
+
+void listarNotas(List<String> notas) {
+  for (var i = 0; i < notas.length; i++) {
+    print(notas[i]);
+  }
+}
+
+void menu(List<String> notas) {
+  String comando = getComando();
+
+  switch (comando) {
+    case "1":
+      adicionaNota(notas);
+      menu(notas);
+    case "2":
+      listarNotas(notas);
+      menu(notas);
+    case "3":
+      print("Até breve!");
+  }
 }
 
 //Variáveis primitivas
@@ -144,6 +182,23 @@ switch (variávelDeEntrada){
 
 Listas
 List<tipoDasEntradas> nomeDaLista = <tipoDasEntradas>[];
+
+for (condição){
+  código
+}
+
+for (tipoDoElemento elementos in colecaoDeDados){
+  código
+}
+
+while (condição){
+  código a ser executado
+}
+
+O "do/while" executa o código antes de testar a condição.
+do {
+  código
+} while (condição)
 
 
 */
